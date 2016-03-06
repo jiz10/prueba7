@@ -10,6 +10,7 @@
         <menu:category id="c_negocio" z="nHdMl3TLtO5frwVf8yy813332Sc=">
             <menu:item id="i_negocio_new" messageCode="global_menu_new" url="/negocios?form" z="kcbWGxjl9RwhsvtJxVbc1wgQ6Y0="/>
             <menu:item id="i_negocio_list" messageCode="global_menu_list" url="/negocios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="NLRAx8MM37gCpvu3+4wzjOYb+AM="/>
+            <menu:item id="fi_negocio_nyaequalsordomicilioequalsoremailequalsortelefonoequalsortags" messageCode="global_menu_find" url="/negocios?find=ByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="rbcTRdAEEJ7hoSqwjeX81Ld5IN4="/>
         </menu:category>
     </menu:menu>
 </div>

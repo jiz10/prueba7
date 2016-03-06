@@ -24,3 +24,6 @@ web mvc bootstrap setup
 web mvc bootstrap update
 jpa gvnix setup
 web mvc all --package ar.com.edu.um.web
+finder add --class ~.domain.Negocio --finderName findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags
+web mvc finder all
+web mvc bootstrap update

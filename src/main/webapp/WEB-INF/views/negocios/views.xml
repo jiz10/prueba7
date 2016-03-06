@@ -13,4 +13,7 @@
 <definition extends="default" name="negocios/update">
         <put-attribute name="body" value="/WEB-INF/views/negocios/update.jspx"/>
     </definition>
+<definition extends="default" name="negocios/findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags">
+        <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags.jspx"/>
+    </definition>
 </tiles-definitions>
