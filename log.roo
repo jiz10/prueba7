@@ -1,0 +1,26 @@
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-06 15:29:57
+project --topLevelPackage ar.com.edu.um --projectName prueba7 --java 6 --packaging WAR
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log closed at 2016-03-06 15:29:58
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-06 15:30:09
+jpa setup --database MYSQL --provider HIBERNATE --databaseName prueba7 --hostName localhost --userName root
+entity jpa --class ar.com.edu.um.domain.Negocio --testAutomatically
+entity jpa --class ar.com.edu.um.domain.Tag --testAutomatically
+field string --fieldName nombre_tag --notNull
+focus --class ~.domain.Negocio
+field string --fieldName nya
+focus --class ~.domain.Negocio
+field set --fieldName tags --type ~.domain.Tag --cardinality MANY_TO_MANY
+focus --class ~.domain.Tag
+field set --fieldName negocios --type ~.domain.Negocio --cardinality MANY_TO_MANY --mappedBy tags
+web mvc setup 
+web mvc all --package ar.com.edu.um.web
+focus --class ~.domain.Negocio
+field string --fieldName domicilio
+field string --fieldName email
+field number --fieldName telefono --type int
+web mvc jquery setup
+web mvc jquery all
+web mvc bootstrap setup
+web mvc bootstrap update
+jpa gvnix setup
+web mvc all --package ar.com.edu.um.web

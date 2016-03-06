@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/jquery/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ar_com_edu_um_domain_Tag" modelAttribute="tag" path="/tags" versionField="Version" z="9iWyqh0YUx1VzqUJedW9m/2FfUY=">
+        <field:input field="nombre_tag" id="c_ar_com_edu_um_domain_Tag_nombre_tag" required="true" z="8h8EAAsd0oGIoR53C8WZSXQnDPk="/>
+        <field:select field="negocios" id="c_ar_com_edu_um_domain_Tag_negocios" itemValue="id" items="${negocios}" multiple="true" path="/negocios" z="WRhWECY2bc09G3tZluWARfYi8us="/>
+    </form:update>
+</div>

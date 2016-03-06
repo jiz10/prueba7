@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/jquery/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ar_com_edu_um_domain_Negocio" modelAttribute="negocio" path="/negocios" versionField="Version" z="sL+NcYyo24AMgAEUcynDcrkJxQI=">
+        <field:input field="nya" id="c_ar_com_edu_um_domain_Negocio_nya" z="SAuag+R+BQdyfoDLzaUV7ce9C6E="/>
+        <field:select field="tags" id="c_ar_com_edu_um_domain_Negocio_tags" itemValue="id" items="${tags}" multiple="true" path="/tags" z="1uW+iqCoszh5SZfPZmiIrxXGEB8="/>
+        <field:input field="domicilio" id="c_ar_com_edu_um_domain_Negocio_domicilio" z="LVM+Resa8ecb4HxmbD/Tvc/W1Vg="/>
+        <field:input field="email" id="c_ar_com_edu_um_domain_Negocio_email" validationMessageCode="field_invalid_email" z="9S2HTZybTEAVJfzcpl7nfd5E3zA="/>
+        <field:input field="telefono" id="c_ar_com_edu_um_domain_Negocio_telefono" z="f3321cho4xGchTVbI6u7loNXqQY="/>
+    </form:update>
+</div>
