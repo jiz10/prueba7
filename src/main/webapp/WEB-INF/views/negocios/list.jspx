@@ -9,6 +9,7 @@
             <table:column id="c_ar_com_edu_um_domain_Negocio_domicilio" property="domicilio" z="TKVHsYTg/B4Q7lUPYieUSOvWcNA="/>
             <table:column id="c_ar_com_edu_um_domain_Negocio_email" property="email" z="6KzejY8tFP1GksbmooDVCpjG+lw="/>
             <table:column id="c_ar_com_edu_um_domain_Negocio_telefono" property="telefono" z="dgh/pOR/gv3xKaRoXUixHAwwngk="/>
+            <table:column id="c_ar_com_edu_um_domain_Negocio_strtel" property="strtel" z="T1VREpgGSV2k6nRX/dsgW63WHQU="/>
         </table:table>
     </page:list>
 </div>

@@ -10,7 +10,15 @@
         <menu:category id="c_negocio" z="nHdMl3TLtO5frwVf8yy813332Sc=">
             <menu:item id="i_negocio_new" messageCode="global_menu_new" url="/negocios?form" z="kcbWGxjl9RwhsvtJxVbc1wgQ6Y0="/>
             <menu:item id="i_negocio_list" messageCode="global_menu_list" url="/negocios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="NLRAx8MM37gCpvu3+4wzjOYb+AM="/>
+            <menu:item id="fi_negocio_domicilioequals" messageCode="global_menu_find" url="/negocios?find=ByDomicilioEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="b5lWT4ZLdpJHp9BB8ce3recSV5Q="/>
+            <menu:item id="fi_negocio_emailequals" messageCode="global_menu_find" url="/negocios?find=ByEmailEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="mkdibfGLbtPd+23ZKqbqCkd7GWk="/>
+            <menu:item id="fi_negocio_nyaequals" messageCode="global_menu_find" url="/negocios?find=ByNyaEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="jPEEQZTXMdgNhYlCpZylddD0AlQ="/>
             <menu:item id="fi_negocio_nyaequalsordomicilioequalsoremailequalsortelefonoequalsortags" messageCode="global_menu_find" url="/negocios?find=ByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="rbcTRdAEEJ7hoSqwjeX81Ld5IN4="/>
+            <menu:item id="fi_negocio_strtelequals" messageCode="global_menu_find" url="/negocios?find=ByStrtelEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="FkMG66P8yk3RVB4e0la2eFAwnW0="/>
+            <menu:item id="fi_negocio_tags" messageCode="global_menu_find" url="/negocios?find=ByTags&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="i2Zpdi8u5Ac73PZwScygZRIJTFY="/>
+        </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__findnegocioindex_id" messageCode="global_generic" url="/findnegocio/index" z="URTSaMRBOZUZqC2OBWbNs/Iu4Xc="/>
         </menu:category>
     </menu:menu>
 </div>

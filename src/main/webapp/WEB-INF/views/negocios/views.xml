@@ -16,4 +16,19 @@
 <definition extends="default" name="negocios/findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags">
         <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags.jspx"/>
     </definition>
+<definition extends="default" name="negocios/findNegociosByNyaEquals">
+        <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByNyaEquals.jspx"/>
+    </definition>
+<definition extends="default" name="negocios/findNegociosByDomicilioEquals">
+        <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByDomicilioEquals.jspx"/>
+    </definition>
+<definition extends="default" name="negocios/findNegociosByEmailEquals">
+        <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByEmailEquals.jspx"/>
+    </definition>
+<definition extends="default" name="negocios/findNegociosByStrtelEquals">
+        <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByStrtelEquals.jspx"/>
+    </definition>
+<definition extends="default" name="negocios/findNegociosByTags">
+        <put-attribute name="body" value="/WEB-INF/views/negocios/findNegociosByTags.jspx"/>
+    </definition>
 </tiles-definitions>

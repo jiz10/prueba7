@@ -11,6 +11,30 @@ import javax.persistence.TypedQuery;
 
 privileged aspect Negocio_Roo_Finder {
     
+    public static Long Negocio.countFindNegociosByDomicilioEquals(String domicilio) {
+        if (domicilio == null || domicilio.length() == 0) throw new IllegalArgumentException("The domicilio argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Negocio AS o WHERE o.domicilio = :domicilio", Long.class);
+        q.setParameter("domicilio", domicilio);
+        return ((Long) q.getSingleResult());
+    }
+    
+    public static Long Negocio.countFindNegociosByEmailEquals(String email) {
+        if (email == null || email.length() == 0) throw new IllegalArgumentException("The email argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Negocio AS o WHERE o.email = :email", Long.class);
+        q.setParameter("email", email);
+        return ((Long) q.getSingleResult());
+    }
+    
+    public static Long Negocio.countFindNegociosByNyaEquals(String nya) {
+        if (nya == null || nya.length() == 0) throw new IllegalArgumentException("The nya argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Negocio AS o WHERE o.nya = :nya", Long.class);
+        q.setParameter("nya", nya);
+        return ((Long) q.getSingleResult());
+    }
+    
     public static Long Negocio.countFindNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags(String nya, String domicilio, String email, int telefono, Set<Tag> tags) {
         if (nya == null || nya.length() == 0) throw new IllegalArgumentException("The nya argument is required");
         if (domicilio == null || domicilio.length() == 0) throw new IllegalArgumentException("The domicilio argument is required");
@@ -32,6 +56,100 @@ privileged aspect Negocio_Roo_Finder {
             q.setParameter("tags_item" + tagsIndex++, _tag);
         }
         return ((Long) q.getSingleResult());
+    }
+    
+    public static Long Negocio.countFindNegociosByStrtelEquals(String strtel) {
+        if (strtel == null || strtel.length() == 0) throw new IllegalArgumentException("The strtel argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Negocio AS o WHERE o.strtel = :strtel", Long.class);
+        q.setParameter("strtel", strtel);
+        return ((Long) q.getSingleResult());
+    }
+    
+    //OR
+    public static Long Negocio.countFindNegociosByTags(Set<Tag> tags) {
+        if (tags == null) throw new IllegalArgumentException("The tags argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT COUNT(o) FROM Negocio AS o WHERE");
+        for (int i = 0; i < tags.size(); i++) {
+            if (i > 0) queryBuilder.append(" OR");
+            queryBuilder.append(" :tags_item").append(i).append(" MEMBER OF o.tags");
+        }
+        TypedQuery q = em.createQuery(queryBuilder.toString(), Long.class);
+        int tagsIndex = 0;
+        for (Tag _tag: tags) {
+            q.setParameter("tags_item" + tagsIndex++, _tag);
+        }
+        return ((Long) q.getSingleResult());
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByDomicilioEquals(String domicilio) {
+        if (domicilio == null || domicilio.length() == 0) throw new IllegalArgumentException("The domicilio argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery<Negocio> q = em.createQuery("SELECT o FROM Negocio AS o WHERE o.domicilio = :domicilio", Negocio.class);
+        q.setParameter("domicilio", domicilio);
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByDomicilioEquals(String domicilio, String sortFieldName, String sortOrder) {
+        if (domicilio == null || domicilio.length() == 0) throw new IllegalArgumentException("The domicilio argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Negocio AS o WHERE o.domicilio = :domicilio");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<Negocio> q = em.createQuery(queryBuilder.toString(), Negocio.class);
+        q.setParameter("domicilio", domicilio);
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByEmailEquals(String email) {
+        if (email == null || email.length() == 0) throw new IllegalArgumentException("The email argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery<Negocio> q = em.createQuery("SELECT o FROM Negocio AS o WHERE o.email = :email", Negocio.class);
+        q.setParameter("email", email);
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByEmailEquals(String email, String sortFieldName, String sortOrder) {
+        if (email == null || email.length() == 0) throw new IllegalArgumentException("The email argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Negocio AS o WHERE o.email = :email");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<Negocio> q = em.createQuery(queryBuilder.toString(), Negocio.class);
+        q.setParameter("email", email);
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByNyaEquals(String nya) {
+        if (nya == null || nya.length() == 0) throw new IllegalArgumentException("The nya argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery<Negocio> q = em.createQuery("SELECT o FROM Negocio AS o WHERE o.nya = :nya", Negocio.class);
+        q.setParameter("nya", nya);
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByNyaEquals(String nya, String sortFieldName, String sortOrder) {
+        if (nya == null || nya.length() == 0) throw new IllegalArgumentException("The nya argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Negocio AS o WHERE o.nya = :nya");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<Negocio> q = em.createQuery(queryBuilder.toString(), Negocio.class);
+        q.setParameter("nya", nya);
+        return q;
     }
     
     public static TypedQuery<Negocio> Negocio.findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags(String nya, String domicilio, String email, int telefono, Set<Tag> tags) {
@@ -79,6 +197,69 @@ privileged aspect Negocio_Roo_Finder {
         q.setParameter("domicilio", domicilio);
         q.setParameter("email", email);
         q.setParameter("telefono", telefono);
+        int tagsIndex = 0;
+        for (Tag _tag: tags) {
+            q.setParameter("tags_item" + tagsIndex++, _tag);
+        }
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByStrtelEquals(String strtel) {
+        if (strtel == null || strtel.length() == 0) throw new IllegalArgumentException("The strtel argument is required");
+        EntityManager em = Negocio.entityManager();
+        TypedQuery<Negocio> q = em.createQuery("SELECT o FROM Negocio AS o WHERE o.strtel = :strtel", Negocio.class);
+        q.setParameter("strtel", strtel);
+        return q;
+    }
+    
+    public static TypedQuery<Negocio> Negocio.findNegociosByStrtelEquals(String strtel, String sortFieldName, String sortOrder) {
+        if (strtel == null || strtel.length() == 0) throw new IllegalArgumentException("The strtel argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Negocio AS o WHERE o.strtel = :strtel");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<Negocio> q = em.createQuery(queryBuilder.toString(), Negocio.class);
+        q.setParameter("strtel", strtel);
+        return q;
+    }
+    
+    //or
+    public static TypedQuery<Negocio> Negocio.findNegociosByTags(Set<Tag> tags) {
+        if (tags == null) throw new IllegalArgumentException("The tags argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Negocio AS o WHERE");
+        for (int i = 0; i < tags.size(); i++) {
+            if (i > 0) queryBuilder.append(" OR");
+            queryBuilder.append(" :tags_item").append(i).append(" MEMBER OF o.tags");
+        }
+        TypedQuery<Negocio> q = em.createQuery(queryBuilder.toString(), Negocio.class);
+        int tagsIndex = 0;
+        for (Tag _tag: tags) {
+            q.setParameter("tags_item" + tagsIndex++, _tag);
+        }
+        return q;
+    }
+    
+    //or
+    public static TypedQuery<Negocio> Negocio.findNegociosByTags(Set<Tag> tags, String sortFieldName, String sortOrder) {
+        if (tags == null) throw new IllegalArgumentException("The tags argument is required");
+        EntityManager em = Negocio.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Negocio AS o WHERE");
+        for (int i = 0; i < tags.size(); i++) {
+            if (i > 0) queryBuilder.append(" OR");
+            queryBuilder.append(" :tags_item").append(i).append(" MEMBER OF o.tags");
+        }
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" " + sortOrder);
+            }
+        }
+        TypedQuery<Negocio> q = em.createQuery(queryBuilder.toString(), Negocio.class);
         int tagsIndex = 0;
         for (Tag _tag: tags) {
             q.setParameter("tags_item" + tagsIndex++, _tag);

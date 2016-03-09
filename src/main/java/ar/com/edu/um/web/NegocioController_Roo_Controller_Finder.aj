@@ -14,6 +14,63 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 privileged aspect NegocioController_Roo_Controller_Finder {
     
+    @RequestMapping(params = { "find=ByDomicilioEquals", "form" }, method = RequestMethod.GET)
+    public String NegocioController.findNegociosByDomicilioEqualsForm(Model uiModel) {
+        return "negocios/findNegociosByDomicilioEquals";
+    }
+    
+    @RequestMapping(params = "find=ByDomicilioEquals", method = RequestMethod.GET)
+    public String NegocioController.findNegociosByDomicilioEquals(@RequestParam("domicilio") String domicilio, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("negocios", Negocio.findNegociosByDomicilioEquals(domicilio, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) Negocio.countFindNegociosByDomicilioEquals(domicilio) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("negocios", Negocio.findNegociosByDomicilioEquals(domicilio, sortFieldName, sortOrder).getResultList());
+        }
+        return "negocios/list";
+    }
+    
+    @RequestMapping(params = { "find=ByEmailEquals", "form" }, method = RequestMethod.GET)
+    public String NegocioController.findNegociosByEmailEqualsForm(Model uiModel) {
+        return "negocios/findNegociosByEmailEquals";
+    }
+    
+    @RequestMapping(params = "find=ByEmailEquals", method = RequestMethod.GET)
+    public String NegocioController.findNegociosByEmailEquals(@RequestParam("email") String email, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("negocios", Negocio.findNegociosByEmailEquals(email, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) Negocio.countFindNegociosByEmailEquals(email) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("negocios", Negocio.findNegociosByEmailEquals(email, sortFieldName, sortOrder).getResultList());
+        }
+        return "negocios/list";
+    }
+    
+    @RequestMapping(params = { "find=ByNyaEquals", "form" }, method = RequestMethod.GET)
+    public String NegocioController.findNegociosByNyaEqualsForm(Model uiModel) {
+        return "negocios/findNegociosByNyaEquals";
+    }
+    
+    @RequestMapping(params = "find=ByNyaEquals", method = RequestMethod.GET)
+    public String NegocioController.findNegociosByNyaEquals(@RequestParam("nya") String nya, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("negocios", Negocio.findNegociosByNyaEquals(nya, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) Negocio.countFindNegociosByNyaEquals(nya) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("negocios", Negocio.findNegociosByNyaEquals(nya, sortFieldName, sortOrder).getResultList());
+        }
+        return "negocios/list";
+    }
+    
     @RequestMapping(params = { "find=ByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags", "form" }, method = RequestMethod.GET)
     public String NegocioController.findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTagsForm(Model uiModel) {
         uiModel.addAttribute("tags", Tag.findAllTags());
@@ -30,6 +87,45 @@ privileged aspect NegocioController_Roo_Controller_Finder {
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
             uiModel.addAttribute("negocios", Negocio.findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags(nya, domicilio, email, telefono, tags, sortFieldName, sortOrder).getResultList());
+        }
+        return "negocios/list";
+    }
+    
+    @RequestMapping(params = { "find=ByStrtelEquals", "form" }, method = RequestMethod.GET)
+    public String NegocioController.findNegociosByStrtelEqualsForm(Model uiModel) {
+        return "negocios/findNegociosByStrtelEquals";
+    }
+    
+    @RequestMapping(params = "find=ByStrtelEquals", method = RequestMethod.GET)
+    public String NegocioController.findNegociosByStrtelEquals(@RequestParam("strtel") String strtel, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("negocios", Negocio.findNegociosByStrtelEquals(strtel, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) Negocio.countFindNegociosByStrtelEquals(strtel) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("negocios", Negocio.findNegociosByStrtelEquals(strtel, sortFieldName, sortOrder).getResultList());
+        }
+        return "negocios/list";
+    }
+    
+    @RequestMapping(params = { "find=ByTags", "form" }, method = RequestMethod.GET)
+    public String NegocioController.findNegociosByTagsForm(Model uiModel) {
+        uiModel.addAttribute("tags", Tag.findAllTags());
+        return "negocios/findNegociosByTags";
+    }
+    
+    @RequestMapping(params = "find=ByTags", method = RequestMethod.GET)
+    public String NegocioController.findNegociosByTags(@RequestParam("tags") Set<Tag> tags, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("negocios", Negocio.findNegociosByTags(tags, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) Negocio.countFindNegociosByTags(tags) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("negocios", Negocio.findNegociosByTags(tags, sortFieldName, sortOrder).getResultList());
         }
         return "negocios/list";
     }

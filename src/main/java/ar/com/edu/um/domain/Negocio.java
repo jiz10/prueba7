@@ -9,7 +9,7 @@ import javax.persistence.ManyToMany;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags" })
+@RooJpaActiveRecord(finders = { "findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags", "findNegociosByNyaEquals", "findNegociosByDomicilioEquals", "findNegociosByEmailEquals", "findNegociosByStrtelEquals", "findNegociosByTags" })
 public class Negocio {
 
     /**
@@ -32,4 +32,8 @@ public class Negocio {
     /**
      */
     private int telefono;
+
+    /**
+     */
+    private String strtel;
 }

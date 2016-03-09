@@ -8,5 +8,6 @@
         <field:display field="domicilio" id="s_ar_com_edu_um_domain_Negocio_domicilio" object="${negocio}" z="F/umP/xBJcgoqmjhufc9GJnhANs="/>
         <field:display field="email" id="s_ar_com_edu_um_domain_Negocio_email" object="${negocio}" z="Mh2BpQUXL51fWZ4FW0VUgRH+f9Q="/>
         <field:display field="telefono" id="s_ar_com_edu_um_domain_Negocio_telefono" object="${negocio}" z="kWOWrg0URu4aZari24KPS6ro+Yg="/>
+        <field:display field="strtel" id="s_ar_com_edu_um_domain_Negocio_strtel" object="${negocio}" z="xYSBeu556Gq6ockkvRVGDM3QJmw="/>
     </page:show>
 </div>

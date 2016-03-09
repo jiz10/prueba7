@@ -27,6 +27,7 @@ privileged aspect NegocioDataOnDemand_Roo_DataOnDemand {
         setDomicilio(obj, index);
         setEmail(obj, index);
         setNya(obj, index);
+        setStrtel(obj, index);
         setTelefono(obj, index);
         return obj;
     }
@@ -44,6 +45,11 @@ privileged aspect NegocioDataOnDemand_Roo_DataOnDemand {
     public void NegocioDataOnDemand.setNya(Negocio obj, int index) {
         String nya = "nya_" + index;
         obj.setNya(nya);
+    }
+    
+    public void NegocioDataOnDemand.setStrtel(Negocio obj, int index) {
+        String strtel = "strtel_" + index;
+        obj.setStrtel(strtel);
     }
     
     public void NegocioDataOnDemand.setTelefono(Negocio obj, int index) {

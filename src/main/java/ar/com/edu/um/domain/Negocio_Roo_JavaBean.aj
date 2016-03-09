@@ -49,4 +49,12 @@ privileged aspect Negocio_Roo_JavaBean {
         this.telefono = telefono;
     }
     
+    public String Negocio.getStrtel() {
+        return this.strtel;
+    }
+    
+    public void Negocio.setStrtel(String strtel) {
+        this.strtel = strtel;
+    }
+    
 }

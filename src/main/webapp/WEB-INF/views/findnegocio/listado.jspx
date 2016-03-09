@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="label_findnegocio_index" htmlEscape="false" var="title"/>
+  
+  	<div>
+  		
+  		<a href="javascript:history.back()"><span class="glyphicon glyphicon-circle-arrow-left"></span></a> 
+  	
+  		<p><h1>${size2} con duplicados</h1></p>
+  		
+  		<p><h1>${size3} sin dup restaturantes encontrados para tu busqueda</h1></p>
+  	
+	  	<div class="list-group">
+			  
+			  <c:forEach var="valor" items="${negocios}">
+				       <a href="#" class="list-group-item">${valor.nya}</a>  		
+				</c:forEach>
+			 
+			 
+		</div>
+	
+	</div>
+	
+	
+</div>

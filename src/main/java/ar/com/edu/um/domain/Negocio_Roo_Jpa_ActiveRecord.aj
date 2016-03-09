@@ -14,7 +14,7 @@ privileged aspect Negocio_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Negocio.entityManager;
     
-    public static final List<String> Negocio.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nya", "tags", "domicilio", "email", "telefono");
+    public static final List<String> Negocio.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nya", "tags", "domicilio", "email", "telefono", "strtel");
     
     public static final EntityManager Negocio.entityManager() {
         EntityManager em = new Negocio().entityManager;

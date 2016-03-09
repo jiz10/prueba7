@@ -27,3 +27,33 @@ web mvc all --package ar.com.edu.um.web
 finder add --class ~.domain.Negocio --finderName findNegociosByNyaEqualsOrDomicilioEqualsOrEmailEqualsOrTelefonoEqualsOrTags
 web mvc finder all
 web mvc bootstrap update
+web mvc controller --class ~.web.FindeNegocio --preferredMapping findnegocio
+web mvc all --package ar.com.edu.um.web
+web mvc bootstrap update
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log closed at 2016-03-06 23:44:23
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-07 12:55:27
+finder list --class ~.domain.Tag
+finder list --class ~.domain.Tag
+hint
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log closed at 2016-03-08 00:32:44
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-08 11:05:53
+finder list --class ~.domain.Negocio
+finder add --finderName findNegociosByNyaEquals
+finder add --finderName findNegociosByDomicilioEquals
+finder add --finderName findNegociosByEmailEquals
+field string --fieldName strtel
+finder list --class ~.domain.Negocio
+finder add --finderName findNegociosByStrtelEquals --class ~.domain.Negocio
+finder add --class ~.domain.Negocio --finderName findNegociosByTags
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log closed at 2016-03-08 14:51:22
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-08 14:56:34
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log closed at 2016-03-08 15:02:36
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-08 15:52:30
+remote service class --class ~.service.AgregarNegociosService
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log closed at 2016-03-08 20:42:02
+// Spring Roo 1.3.2.RELEASE [rev 8c2549b] log opened at 2016-03-09 11:16:07
+hint
+focus --class ~.domain.Tag
+finder list --class ~.domain.Tag
+finder list --class ~.domain.Tag --filter id
+finder add --finderName findTagsByNombre_tagEquals --class ~.domain.Tag

@@ -8,6 +8,7 @@
         <field:input field="domicilio" id="c_ar_com_edu_um_domain_Negocio_domicilio" z="LVM+Resa8ecb4HxmbD/Tvc/W1Vg="/>
         <field:input field="email" id="c_ar_com_edu_um_domain_Negocio_email" validationMessageCode="field_invalid_email" z="9S2HTZybTEAVJfzcpl7nfd5E3zA="/>
         <field:input field="telefono" id="c_ar_com_edu_um_domain_Negocio_telefono" z="f3321cho4xGchTVbI6u7loNXqQY="/>
+        <field:input field="strtel" id="c_ar_com_edu_um_domain_Negocio_strtel" z="Fgx81qEtkUDw4qFfWK/rml4cCuE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ar_com_edu_um_domain_Negocio" render="${not empty dependencies}" z="590RLRlnCkPIdqAzFcjQS7QKxRA="/>
 </div>
