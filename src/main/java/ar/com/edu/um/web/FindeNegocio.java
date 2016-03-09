@@ -33,7 +33,10 @@ public class FindeNegocio {
     public String find(Model uiModel, HttpServletRequest request, HttpServletResponse response) {
     	    	
     	String saludo="saludo"; 	
-    	uiModel.addAttribute("tags",Tag.findAllTags());
+    	
+    	uiModel.addAttribute("tags",Tag.findTagsByHabilitado(1).getResultList());
+    	
+
     	uiModel.addAttribute("saludo", saludo);
         return "findnegocio/find";	
     }
@@ -56,8 +59,7 @@ public class FindeNegocio {
     	String strtel  = request.getParameter("strtel");
     	String[] tags = request.getParameterValues("tags");
     	
-    	
-    	
+   
     	//compruebo si los campos son nulos, sino los agrego a la lista de negocios
     	if (nya!=""){
     		List<Negocio> negociosnya = Negocio.findNegociosByNyaEquals(nya).getResultList();

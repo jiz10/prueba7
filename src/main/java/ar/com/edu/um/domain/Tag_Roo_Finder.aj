@@ -9,12 +9,71 @@ import javax.persistence.TypedQuery;
 
 privileged aspect Tag_Roo_Finder {
     
+    public static Long Tag.countFindTagsByEnabledNot(Boolean enabled) {
+        if (enabled == null) throw new IllegalArgumentException("The enabled argument is required");
+        EntityManager em = Tag.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Tag AS o WHERE o.enabled IS NOT :enabled", Long.class);
+        q.setParameter("enabled", enabled);
+        return ((Long) q.getSingleResult());
+    }
+    
+    public static Long Tag.countFindTagsByHabilitado(int habilitado) {
+        EntityManager em = Tag.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Tag AS o WHERE o.habilitado = :habilitado", Long.class);
+        q.setParameter("habilitado", habilitado);
+        return ((Long) q.getSingleResult());
+    }
+    
     public static Long Tag.countFindTagsByNombre_tagEquals(String nombre_tag) {
         if (nombre_tag == null || nombre_tag.length() == 0) throw new IllegalArgumentException("The nombre_tag argument is required");
         EntityManager em = Tag.entityManager();
         TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Tag AS o WHERE o.nombre_tag = :nombre_tag", Long.class);
         q.setParameter("nombre_tag", nombre_tag);
         return ((Long) q.getSingleResult());
+    }
+    
+    public static TypedQuery<Tag> Tag.findTagsByEnabledNot(Boolean enabled) {
+        if (enabled == null) throw new IllegalArgumentException("The enabled argument is required");
+        EntityManager em = Tag.entityManager();
+        TypedQuery<Tag> q = em.createQuery("SELECT o FROM Tag AS o WHERE o.enabled IS NOT :enabled", Tag.class);
+        q.setParameter("enabled", enabled);
+        return q;
+    }
+    
+    public static TypedQuery<Tag> Tag.findTagsByEnabledNot(Boolean enabled, String sortFieldName, String sortOrder) {
+        if (enabled == null) throw new IllegalArgumentException("The enabled argument is required");
+        EntityManager em = Tag.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Tag AS o WHERE o.enabled IS NOT :enabled");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<Tag> q = em.createQuery(queryBuilder.toString(), Tag.class);
+        q.setParameter("enabled", enabled);
+        return q;
+    }
+    
+    public static TypedQuery<Tag> Tag.findTagsByHabilitado(int habilitado) {
+        EntityManager em = Tag.entityManager();
+        TypedQuery<Tag> q = em.createQuery("SELECT o FROM Tag AS o WHERE o.habilitado = :habilitado", Tag.class);
+        q.setParameter("habilitado", habilitado);
+        return q;
+    }
+    
+    public static TypedQuery<Tag> Tag.findTagsByHabilitado(int habilitado, String sortFieldName, String sortOrder) {
+        EntityManager em = Tag.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM Tag AS o WHERE o.habilitado = :habilitado");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<Tag> q = em.createQuery(queryBuilder.toString(), Tag.class);
+        q.setParameter("habilitado", habilitado);
+        return q;
     }
     
     public static TypedQuery<Tag> Tag.findTagsByNombre_tagEquals(String nombre_tag) {

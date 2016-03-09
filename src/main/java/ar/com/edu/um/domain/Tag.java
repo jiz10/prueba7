@@ -10,7 +10,7 @@ import javax.persistence.ManyToMany;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findTagsByNombre_tagEquals" })
+@RooJpaActiveRecord(finders = { "findTagsByNombre_tagEquals", "findTagsByEnabledNot", "findTagsByHabilitado" })
 public class Tag {
 
     /**
@@ -22,4 +22,12 @@ public class Tag {
      */
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "tags")
     private Set<Negocio> negocios = new HashSet<Negocio>();
+
+    /**
+     */
+    private Boolean enabled = true;
+
+    /**
+     */
+    private int habilitado=1;
 }

@@ -25,4 +25,20 @@ privileged aspect Tag_Roo_JavaBean {
         this.negocios = negocios;
     }
     
+    public Boolean Tag.getEnabled() {
+        return this.enabled;
+    }
+    
+    public void Tag.setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+    
+    public int Tag.getHabilitado() {
+        return this.habilitado;
+    }
+    
+    public void Tag.setHabilitado(int habilitado) {
+        this.habilitado = habilitado;
+    }
+    
 }

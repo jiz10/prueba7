@@ -14,7 +14,7 @@ privileged aspect Tag_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Tag.entityManager;
     
-    public static final List<String> Tag.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre_tag", "negocios");
+    public static final List<String> Tag.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre_tag", "negocios", "enabled", "habilitado");
     
     public static final EntityManager Tag.entityManager() {
         EntityManager em = new Tag().entityManager;

@@ -15,7 +15,7 @@
 	  	<div class="list-group">
 			  
 			  <c:forEach var="valor" items="${negocios}">
-				       <a href="#" class="list-group-item">${valor.nya}</a>  		
+				       <a href="/homeNegocio?idNegocio=${valor.id}" class="list-group-item">${valor.nya}</a>  		
 				</c:forEach>
 			 
 			 
